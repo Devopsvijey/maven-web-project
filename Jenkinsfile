@@ -22,12 +22,12 @@ stages {
             }
         }
 	
-	stage('Deploy') { 
+	stage('Deploy') {
             steps {
              sshagent(['tomcat_deploy']) {
-		sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven_deploy/target/maven-web-application.war ubuntu@44.202.20.125:/opt/apache-tomcat-8.5.84/webapps'   
+               sh '''scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Maven_depoly/target/maven-web-application.war root@ip-172-31-39-129:/opt/apache-tomcat-8.5.84/webapps'''
             }
         }
 	}
 	}
-}
+
